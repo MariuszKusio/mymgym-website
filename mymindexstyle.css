@@ -1,0 +1,2000 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p {
+    cursor: default;
+}
+
+
+body {
+    background-color: rgb(19, 19, 22);
+    scroll-behavior: smooth;
+    font-family: Inter, sans-serif;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.menuWrapper {
+    height: 16vh;
+
+}
+
+/* MENU */
+
+/* RESPONSIVE MENU BUTTON */
+
+.menuResponsiveBtn {
+    position: absolute;
+    left: 2vh;
+    top: 2vh;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+   
+}
+
+.menuBurger {
+    display: none;
+    width: 40px;
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgb(50,50,50);
+    transition: all .5s ease-in-out;
+}
+
+.menuBurger::before,
+.menuBurger::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgb(50,50,50);
+    transition: all .5s ease-in-out;
+}
+
+.menuBurger::before {
+    transform: translateY(-14px);
+}
+
+.menuBurger::after {
+    transform: translateY(14px);
+}
+
+/* RESPONSIVE MENU ANIMATION */
+
+.menuResponsiveBtn.open .menuBurger {
+    transform: translateX(-40px);
+    background: transparent;
+    box-shadow: none;
+    
+
+}
+
+.menuResponsiveBtn.open .menuBurger::before {
+    transform: rotate(45deg) translate(25px, -25px);
+    background: black;
+    box-shadow: 0 1px 3px rgb(180,180,180);
+}
+
+.menuResponsiveBtn.open .menuBurger::after {
+    transform: rotate(-45deg) translate(25px, 25px);
+    background: black;
+    box-shadow: 0 1px 3px rgb(180,180,180);
+}
+
+/* RESPONSIVE MENU BUILD */
+
+.menuCricle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    background-color: gray;
+    border-radius: 50%;
+    width: 1000px;
+    height: 1600px;
+}
+
+.responsiveLogo {
+    display: none;
+    position: absolute;
+    height: 150px;
+    width: 100vw;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+}
+
+.responsiveLogo img {
+    display: block;
+    height: 70%;
+    margin: 10px auto 0 auto;
+}
+
+/* MENU */
+
+body .menu {
+    position: relative;
+    top: 2vh;
+    left: 0;
+    height: 80px;
+    width: 100%;
+    background-color: rgb(19, 19, 22);
+}
+
+
+.menu .menuItems {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    max-height: 13vh;
+    max-width: 1550px;
+    min-width: 1100px;
+}
+
+.menu li {
+    display: block;
+    flex-basis: 15%;
+    list-style: none;
+}
+
+.menu li a {
+    display: block;
+    z-index: 4;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 80px;
+    color: white;
+    font-size: 28px;
+    font-weight: 200;
+    transition: 0.3s
+}
+
+
+.menu .logo {
+    width: 100%;
+    height: auto;
+
+}
+
+.menuItems .pricelistMenu,
+.menuItems .galleryMenu,
+.menuItems .aboutMenu,
+.menuItems .trainersMenu {
+    border-bottom: 1px solid white;
+    transition: 0.2s;
+}
+
+/* MENU HOVER */
+
+.menuItems .pricelistMenu:hover,
+.menuItems .galleryMenu:hover,
+.menuItems .aboutMenu:hover,
+.menuItems .trainersMenu:hover {
+    border-bottom: 1px solid transparent;
+    animation: textJump 0.6s 0.2s;
+}
+
+/* MENU ANIMATION */
+
+@keyframes textJump {
+    0% {
+        padding-bottom: 0px;
+    }
+
+    50% {
+        padding-bottom: 13px;
+    }
+
+    60% {
+        padding-bottom: 13px;
+    }
+
+    80% {
+        padding-bottom: 8px;
+    }
+
+    100% {
+        padding-bottom: 0px
+    }
+}
+
+
+
+
+/* HOME PAGE */
+
+
+.backText {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    font-family: Inter, sans-serif;
+    text-transform: uppercase;
+    font-size: 900px;
+    font-weight: 700;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: white;
+    color: transparent;
+    cursor: default;
+    pointer-events: none;
+
+}
+
+.textWrap1 p {
+    position: absolute;
+    left: 0;
+    top: -5vh;
+    height: 40vh;
+    transform: translate(0%, 0);
+    animation: textMove2 45s infinite alternate linear;
+}
+
+.textWrap2 p {
+    position: absolute;
+    right: 0;
+    top: 20vh;
+    height: 54vh;
+    transform: translate(0%, 0);
+    animation: textMove1 45s infinite alternate linear;
+}
+
+.frontImage {
+    position: absolute;
+    right: 0;
+    top: 6vh;
+    height: 96vh;
+    pointer-events: none;
+    transition: 1s;
+}
+
+.frontImage.move {
+    top: 106vh;
+    transition: 1s;
+}
+
+.frontImage img {
+    height: 100vh;
+}
+
+
+
+/* HOME ANIMATION */
+
+
+@keyframes textMove1 {
+    0% {
+        transform: translate(0%, 0);
+    }
+
+    100% {
+        transform: translate(-70%, 0);
+    }
+}
+
+@keyframes textMove2 {
+    0% {
+        transform: translate(0%, 0);
+    }
+
+    100% {
+        transform: translate(70%, 0);
+    }
+}
+
+
+
+
+
+
+/* GALLERY PAGE */
+
+
+.galleryWrap {
+    display: grid;
+    position: absolute;
+    top: 17vh;
+    left: 50%;
+    height: 190vh;
+    width: 90vw;
+    max-width: 1600px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
+    grid-auto-flow: dense;
+    grid-gap: 20px;
+    transform: translate(-50%, 0);
+
+}
+
+.galleryWrap div {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px #161616,
+        -1px -1px 1px #222222;
+    overflow: hidden;
+    cursor: pointer;
+
+    opacity: 1;
+    transition: .3s
+}
+
+.galleryWrap .hidden {
+    opacity: 0;
+}
+
+
+.galleryWrap div img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+}
+
+.wStretch {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+
+.galleryWrap div p {
+    position: absolute;
+    bottom: -30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 200;
+    text-shadow: 1px 1px 1px black;
+    color: aliceblue;
+    transition: 0.4s;
+}
+
+.galleryWrap div.break {
+    box-shadow: 0px 0px 0px #161616,
+        0px 0px 0px #222222;
+    border: none;
+}
+
+
+.galleryWrap div:hover img {
+    transform: scale(1.2);
+    filter: grayscale(100%);
+}
+
+.galleryWrap div:hover p {
+    bottom: 30%;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 10vh;
+    width: 90vw;
+}
+
+
+
+
+/*  ABOUT PAGE  */
+
+
+.slogan {
+    height: 45vh;
+    overflow: hidden;
+    background-image: url(mymgymimg/aboutimg1.jpg);
+    filter: contrast(95%);
+    background-repeat: no-repeat;
+    background-position: 0 -450px;
+    max-width: 1920px;
+    min-width: 1100px;
+    margin: 0 auto;
+}
+
+.blacked {
+    z-index: 1;
+    background-color: rgba(10, 10, 10, .8);
+    height: 45vh;
+    margin-top: 10px;
+    overflow: hidden;
+    max-width: 1920px;
+    min-width: 1100px;
+    margin: 0 auto;
+}
+
+
+
+.slogan p {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 1px 1px 1px black;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: 200;
+    text-align: center;
+    cursor: default;
+}
+
+.advantagesTitle {
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    left: 0;
+    top: calc(26vh + 45vh);
+    width: 100vw;
+    text-align: center;
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    font-weight: 200;
+    color: white;
+}
+
+.advantages .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 55%;
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+    max-width: 1350px;
+    min-width: 1000px;
+    margin: 0 auto;
+
+}
+
+.wrapper .advitem .itemImg {
+    display: block;
+    width: 12%;
+    margin: 0 auto;
+    margin-bottom: 35px;
+}
+
+.advantages .wrapper h2 {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+
+.advitem .cardWrap {
+    height: 280px;
+}
+
+.wrapper .advitem .itemBgc {
+    position: relative;
+    display: block;
+    width: 65%;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 1px 1px 16px rgba(1, 1, 1, 0.6);
+    cursor: pointer;
+}
+
+
+.itemBgc img {
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.advitem .itemBgc .frontCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 20px;
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.advitem .itemBgc .backCard {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid white;
+    transform: perspective(1000px) rotateY(180deg);
+}
+
+
+.localization {
+    margin-top: 160px;
+    color: white;
+}
+
+.localization h1,
+h2,
+h3 {
+    font-weight: 200;
+    text-align: center;
+    margin: 1vh 0 1vh 0;
+
+}
+
+.localization h1 {
+    text-transform: uppercase;
+    font-size: 2.2rem;
+}
+
+.localization h2,
+h3 {
+    font-size: 1.5rem;
+}
+
+
+
+.localization .map {
+    position: relative;
+    width: 55%;
+    max-width: 1100px;
+    min-width: 700px;
+    margin: 4vh auto 10vh auto;
+}
+
+.localization .map img {
+    border-radius: 30px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.localization .map .point {
+    position: absolute;
+    z-index: 2;
+    top: 67%;
+    left: 71%;
+    width: 2.5%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-color: rgba(238, 25, 25, 0.753);
+    animation: breathing 1.1s infinite ease-in-out both;
+    transform: scale(1), translate(-50%, -50%);
+    cursor: pointer;
+    box-shadow: inset 2px 2px 6px rgb(240, 50, 10),
+        1px 1px 1px rbga(50, 50, 50, 0.6);
+    opacity: 1;
+}
+
+
+/* SOCIAL BTN */
+
+
+.socials {
+    position: fixed;
+    z-index: 2;
+    bottom: 5vh;
+    right: 4vw;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px black;
+    background-color: white;
+    cursor: pointer;
+}
+
+.socials i {
+    display: block;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+}
+
+.socials .socialsItem {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 3px black;
+    background-color: white;
+    cursor: pointer;
+    color: rgb(19, 19, 22);
+    transition: all 0.5s;
+    transition-delay: 2s;
+}
+
+.socials .fa-comment {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.socials .facebookBtn {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+}
+
+.socials .instagramBtn {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+}
+
+.socials .tiktokBtn {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+}
+
+
+/* ABOUT HOVERS */
+
+
+.itemBgc:hover .frontCard {
+    transform: perspective(1000px) rotateY(180deg);
+}
+
+.itemBgc:hover .backCard {
+    transform: perspective(1000px) rotateY(360deg);
+}
+
+.socials:hover .facebookBtn {
+    bottom: 80px;
+    right: -20px;
+    transition-delay: 0s;
+}
+
+.socials:hover .instagramBtn {
+    bottom: 60px;
+    right: 60px;
+    transition-delay: 0s;
+}
+
+.socials:hover .tiktokBtn {
+    bottom: -20px;
+    right: 80px;
+    transition-delay: 0s;
+
+}
+
+/* ABOUT KEYFRAME ANIMATIONS */
+
+
+@keyframes breathing {
+    0% {
+        transform: scale(1);
+        opacity: .3;
+    }
+
+    45% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    55% {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: .3;
+    }
+}
+
+
+
+/* TRAINERS PAGE */
+
+
+.scroll-indicator {
+    z-index: 100;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 60px;
+    background-color: rgba(50, 50, 50, .9);
+    border-radius: 20px;
+    box-shadow: inset 24px -24px 57px rgb(160, 160, 160),
+            inset -24px 24px 57px #ffffff;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.ball {
+    z-index: 100;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, rgb(250,250,250), rgb(220,220,220));
+    box-shadow:  27px -27px 53px #b5b5b5,
+             -27px 27px 53px #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 1.5s infinite;
+}
+
+.scroll-indicator.hidden {
+    opacity: 0;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-35px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(5px);
+    }
+}
+
+
+.trainersBaner {
+    background-color: beige;
+    height: 30vh;
+    background-image: url(mymgymimg/trainersbanner.png);
+    background-position: center;
+    background-size: cover;
+    min-height: 200px;
+    min-width: 1000px;
+    max-width: 1200px;
+    width: 60vw;
+    border-radius: 25px;
+    margin: 20px auto;
+    margin-bottom: 40px;
+
+
+}
+
+
+.trainersCards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    min-width: 1000px;
+    margin: 0 auto;
+
+}
+
+
+.cardWrapper {
+    position: relative;
+    transform: translateX(-300%);
+    opacity: 0;
+    transition: .4s;
+    width: 90%;
+    height: 500px;
+    margin: 20px auto;
+}
+
+.cardWrapper.show-card {
+    transform: translateX(0%);
+    opacity: 1;
+    transition: .4s
+}
+
+
+.trainerDescription {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 270px;
+    width: 100%;
+    border-radius: 25px;
+    margin: 0 auto;
+    background-color: rgb(200, 200, 200);
+    box-shadow: 1px 1px 4px black;
+}
+
+.trainerDescription p {
+    display: block;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.trainerDescription button {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, 0);
+    background-color: transparent;
+    border: 2px solid rgb(35, 35, 40);
+    color: rgb(35, 35, 40);
+    text-transform: uppercase;
+    width: 20%;
+    height: 40px;
+    cursor: pointer;
+    transition: .3s;
+    
+
+}
+
+.trainerImgWrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 175px ;
+    transform: translate(-50%, 0);
+}
+
+.trainerImgWrapper img {
+  
+    width: 100%;
+    min-width: 200px;
+    filter: drop-shadow(2px 2px 3px black);
+    margin: 0 auto;
+}
+
+
+
+
+
+.contactFormBgc {
+    display: none;
+    position: fixed;
+    z-index: 200;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    width: 100%;
+    background-color: rgba(20, 20, 20, .5);
+    backdrop-filter: blur(3px);
+}
+
+.contactFormBgc.open {
+    display: block;
+}
+
+
+.contactForm {
+    position:fixed;
+    top: -0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width:340px;
+    height:440px;
+    background:#e6e6e6;
+    border-radius:8px;
+    box-shadow:0 0 40px -10px #000;
+    margin:calc(50vh - 220px) auto;
+    padding:20px 30px;
+    max-width:calc(100vw - 40px);
+    box-sizing:border-box;
+   
+}
+
+
+
+.contactCloseBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.contactCloseBtn i {
+    font-size: 30px;
+    transform: rotate(0deg);
+    transition: .3s;
+    color: rgb(35, 35, 40);
+}
+
+
+.formTitle {
+    margin:10px 0;
+    padding-bottom:10px;
+    width:180px;
+    color:rgb(35, 35, 40);
+    border-bottom:3px solid rgb(35, 35, 40);
+}
+
+input {
+    width:100%;
+    padding:10px;
+    box-sizing:border-box;
+    background:none;
+    outline:none;
+    resize:none;
+    border:0;
+    transition:all .3s;
+    border-bottom:2px solid rgb(35, 35, 40);
+}
+
+input:focus {
+    border-bottom:2px solid rgb(35, 35, 40);
+}
+
+p:before {
+    content:attr(type);
+    display:block;
+    margin:28px 0 0;
+    font-size:14px;
+    color:rgb(35, 35, 40);
+}
+
+.contactFormBtn {
+    float:right;
+    padding:8px 12px;
+    margin:18px 0 0;
+    border:2px solid rgb(35, 35, 40);;
+    background:transparent;
+    border-radius: 12px;
+    color:rgb(35, 35, 40);;
+    cursor:pointer;
+    transition:all .3s;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+
+.contactWays {
+    content:'Hi';
+    position:absolute;
+    bottom:-15px;
+    right:-20px;
+    background:rgb(35, 35, 40);
+    color:#fff;
+    width:320px;
+    padding:16px 4px 16px 0;
+    border-radius:6px;
+    font-size:13px;
+    box-shadow:10px 10px 40px -14px #000;
+}
+
+.contactWays span.fa {
+    margin:0 5px 0 15px;
+}
+
+
+
+
+
+
+
+/* TRAINERS HOVER */
+
+.trainerDescription button:hover {
+    box-shadow: 0px 0px 1px black;
+    color: white;
+    background-color: rgb(35, 35, 40);
+}
+
+.contactCloseBtn:hover i {
+    transform: rotate(180deg);
+}
+
+.contactFormBtn:hover {
+    background:rgb(35, 35, 40);
+    color:#fff;
+}
+
+/* PRICELIST PAGE */
+
+
+.priceBaner {
+    top: 0;
+    left: 0;
+    height: 400px;
+    max-width: 850px;
+    min-width: 450px;
+    transform: translate(0, 0);
+    border-radius: 30px;
+    box-shadow: 1px 1px 1px rgba(255, 255, 255, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    background-image: url(pricelistbanerimg1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.priceBaner .btnFirstMonth {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 35%;
+    min-width: 270px;
+    height: 55px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    transition: 0.4s;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.btnFirstMonth span {
+    line-height: 55px;
+    width: 100%;
+    transition: .4s;
+
+}
+
+.btnFirstMonth span:nth-child(1) {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.btnFirstMonth span:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 55px;
+    background-color: rgb(19, 19, 22);
+    color: black;
+
+}
+
+.btnFirstMonth:hover span:nth-child(1) {
+    top: -55px;
+}
+
+.btnFirstMonth:hover span:nth-child(2) {
+    top: 0px;
+    color: white;
+}
+
+
+
+
+.priceList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin: 0 auto;
+    color: white;
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 35px 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    overflow: hidden;
+    max-width: 850px;
+    min-width: 750px;
+
+}
+
+.priceList div {
+    padding: 25px 15px;
+}
+
+.priceList .divItem {
+    font-weight: 300;
+}
+
+.element1 {
+    grid-area: 1 / 1 / 2 / 2;
+    border-bottom: 1px solid white;
+}
+
+.element2 {
+    grid-area: 1 / 2 / 2 / 3;
+    border-bottom: 1px solid white;
+}
+
+.element3 {
+    grid-area: 1 / 3 / 2 / 4;
+    border-bottom: 1px solid white;
+}
+
+.element4 {
+    grid-area: 1 / 4 / 2 / 5;
+    border-bottom: 1px solid white;
+}
+
+.element5 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.element6 {
+    grid-area: 3 / 1 / 4 / 2;
+}
+
+.element7 {
+    grid-area: 4 / 1 / 5 / 2;
+}
+
+.element8 {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.element9 {
+    grid-area: 2 / 3 / 3 / 4;
+}
+
+.element10 {
+    grid-area: 2 / 4 / 3 / 5;
+}
+
+.element11 {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.element12 {
+    grid-area: 3 / 3 / 4 / 4;
+}
+
+.element13 {
+    grid-area: 3 / 4 / 4 / 5;
+}
+
+.element14 {
+    grid-area: 4 / 2 / 5 / 3;
+}
+
+.element15 {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+.element16 {
+    grid-area: 4 / 4 / 5 / 5;
+}
+
+
+.descriptionContainer {
+    display: flex;
+    flex-basis: 200px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 60vw;
+    min-width: 800px;
+    max-width: 1400px;
+}
+
+.descriptionContainer .firstDescription {
+    display: flex;
+    align-items: center;
+    height: 70vh;
+    min-height: 550px;
+    flex-basis: 70%;
+}
+
+.descriptionContainer .firstIphoneImg {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    min-height: 600px;
+    flex-basis: 30%;
+}
+
+.descriptionContainer .firstIphoneImg img {
+    max-width: 100%;
+}
+
+.descriptionContainer .firstDescription p {
+
+    text-align: center;
+    line-height: 2.5rem;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.descriptionContainer h2 {
+    flex-basis: 100%;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.descriptionContainer .secondDescription {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    min-height: 550px;
+    flex-basis: 40%;
+}
+
+.descriptionContainer .secondIphoneImg {
+    display: flex;
+    justify-content: center;
+    height: 70vh;
+    min-height: 600px;
+    flex-basis: 60%;
+}
+
+.descriptionContainer .secondIphoneImg img {
+    min-height: 800px;
+}
+
+.descriptionContainer .secondDescription button {
+    width: 35%;
+    margin-top: 30px;
+    min-width: 270px;
+    height: 55px;
+    border-radius: 20px;
+    background-color: white;
+    transition: 0.4s;
+    font-family: Inter, sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+.descriptionContainer .secondDescription img {
+    margin-top: 30px;
+    width: 100%;
+}
+
+
+/* PRICELIST HOVER */
+
+
+.descriptionContainer .secondDescription button:hover {
+    color: white;
+    background-color: black;
+}
+
+
+
+/* BIGGER TABLETS <1050px */
+
+@media (max-width: 1050px) {
+
+ /* MENU */
+
+ .menuWrapper {
+    height: 14vh;
+
+}
+
+.menu .menuItems {
+    max-width: 1050px;
+    min-width: 800px;
+}
+
+
+.menu li a {
+    letter-spacing: 1px;
+    font-size: 24px;
+}
+
+/* RESPONSVIE HOME */
+
+.backText {
+    font-size: 830px;
+}
+
+.textWrap1 p {
+    left: -100vw;
+    top: 0vh;
+    height: 50vh;
+   
+}
+
+.textWrap2 p {
+    right: -100vw;
+    top: 40vh;
+    height: 50vh;
+}
+
+.frontImage {
+    right: -22vw;  
+}
+
+
+
+/* RESPONSIVE TRAINERS PAGE */
+
+.trainersBaner {
+    max-width: 1200px;
+    min-width: 800px;
+    width: 95vw;
+    margin: 0px auto;
+    margin-bottom: 25px;
+}
+
+.trainersCards {
+    max-width: 1200px;
+    min-width: 800px;
+}
+
+
+/*  RESPONSIVE ABOUT PAGE */
+
+.slogan {
+    height: 30vh;
+    min-height: 400px;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin: 0 auto;
+}
+
+.advantages .wrapper {
+    min-width: 650px;
+    margin: 0 auto;
+}
+
+.localization {
+    margin-top: 80px;
+}
+
+
+.localization h1 {
+    font-size: 2rem;
+}
+
+.localization h2,
+h3 {
+    font-size: 1.3rem;
+}
+ 
+
+/* RESPONSIVE PRICELIST PAGE */
+
+
+.priceBaner {
+    margin-bottom: 70px;
+    margin-top: 0px;
+}
+
+
+.priceList div {
+    text-align: center;
+}
+
+
+.priceList {
+    max-width: 850px;
+    min-width: 500px;
+}
+
+.descriptionContainer .firstIphoneImg img {
+    max-width: 100%;
+}
+
+
+.descriptionContainer .firstDescription {
+    min-height: 550px;
+    flex-basis: 55%;
+}
+
+.descriptionContainer .firstIphoneImg {
+    min-height: 500px;
+    flex-basis: 45%;
+}
+
+/* RESPONSIVE GALLERY PAGE */
+
+.galleryWrap {
+    top: 15vh;
+}
+
+
+
+}
+
+
+
+/* SMALLER TABLETS <800px */
+
+@media (max-width: 800px) {
+
+
+
+}
+
+
+
+
+/* SMARTPHONE  <500px */
+
+
+/* RESPOSIVE MENU */
+
+@media (max-width: 500px) {
+
+ 
+    .responsiveLogo {
+        display: block;
+        top: 0;
+        left: 0;
+        height: 100px;
+        z-index: 20;
+        pointer-events: none;
+    }
+
+  
+    .responsiveLogo .whiteLogo {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translate(-50%,0);
+        opacity: 1;
+        transition: .8s;
+        transition-delay: .8s;
+    }
+
+    .responsiveLogo .whiteLogo.open {
+       opacity: 0;
+       top: -150%;
+       transition-delay: 0s;
+    }
+
+    .responsiveLogo .blackLogo {
+        position: absolute;
+        left: 50%;
+        top: -150%;
+        transform: translate(-50%, 0);
+        opacity: 0;
+        transition: .8s;
+        transition-delay: .6s;
+    }
+
+    .responsiveLogo .blackLogo.open {
+        top: 0;
+        opacity: 1;
+    }
+
+    .menuWrapper {
+        height: 10vh;
+        margin-bottom: 10px;
+    }
+
+    .menuItems .logoMenu {
+        display: none;
+       
+    }
+
+    .menuCircle {
+        position: absolute;
+        top: -1000px;
+        left: calc(-550px + 50vw);
+        transform: translate(0, -50%);
+        background-color: whitesmoke;
+        border-radius: 50%;
+        z-index: 1;
+        width: 1100px;
+        height: 1100px;
+        box-shadow: -10px 10px 40px rgb(20, 20, 20),
+            10px -10px 40px rgb(20, 20, 20);
+        transition: all .8s ease-in-out;
+        transition-delay: 0.6s;
+    }
+
+    
+    .menuCircle.open {
+        top: 0;
+        transition-delay: 0s;
+    }
+
+
+    body .menu {
+        position: absolute;
+        top: 200px;
+        left: -100vw;
+        height: 300px;
+        width: 100%;
+        background-color: transparent;
+        z-index: 3;
+        transition: all .5s ease-in-out;
+        transition-delay: 0s;
+    }
+
+    body .menu.open {
+        left: 0;
+        transition: all .5s ease-in-out;
+        transition-delay: 0.6s;
+    }
+
+    .menu .menuItems {
+        flex-direction: column;
+        min-width: 250px;
+        max-height: 10vh;
+    }
+
+    .menu li a {
+        color: black;
+
+    }
+
+    .menuItems .pricelistMenu,
+    .menuItems .galleryMenu,
+    .menuItems .aboutMenu,
+    .menuItems .trainersMenu {
+        border-bottom: 1px solid black;
+
+    }
+
+    
+    .menuBurger {
+      display: block;
+    }
+
+
+    /* RESPONSIVE HOME PAGE */
+
+    .backText {
+        font-size: 510px;
+    }
+    
+    .textWrap1 p {
+        left: -250%;
+        top: -5%;
+        height: 50vh;
+        animation: textMove2 70s infinite alternate linear;
+    }
+    
+    .textWrap2 p {
+        right: -220%;
+        top: 35vh;
+        height: 60vh;
+        animation: textMove1 70s infinite alternate linear;
+    }
+
+
+    .frontImage {
+        right: -40%;
+        top: 10vh;
+        height: 96vh;
+    }
+
+    @keyframes textMove1 {
+        0% {
+            transform: translate(0%, 0);
+        }
+    
+        100% {
+            transform: translate(-80%, 0);
+        }
+    }
+    
+    @keyframes textMove2 {
+        0% {
+            transform: translate(0%, 0);
+        }
+    
+        100% {
+            transform: translate(80%, 0);
+        }
+    }
+ 
+
+
+
+    /* RESPONSIVE TRAINERS PAGE */
+
+    .trainersCards {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px;
+        max-width: 90vw;
+        min-width: 90vw;
+        
+    }
+
+    .trainerDescription p {
+        width: 90%;
+        margin: 10px auto;
+        font-size: 14px;
+    }
+
+    .trainerDescription button {
+        bottom: 10%;
+        width: 30%;  
+    }
+
+    .trainersBaner {
+        background-position: right;
+        min-width: 90vw;
+        max-width: 100vw;
+        width: 95vw;
+        border-radius: 25px;
+        margin-bottom: 0px;
+    }
+    
+
+
+    /* RESPONSIVE ABOUT PAGE */
+
+    .slogan {
+        height: 40vh;
+        overflow: hidden;
+        background-image: url(mymgymimg/aboutimg1.jpg);
+        background-position: 0 -600px;
+        max-width: 100vw;
+        min-width: 100vw;
+        margin: 25px auto;
+    }
+
+    
+.slogan p {
+    width: 90%;
+    font-size: 1.2rem;
+
+}
+
+
+.advantagesTitle {
+    font-size: 1.8rem;
+}
+
+.advantages .wrapper {
+    grid-template-columns: repeat(1, 1fr);
+    grid-auto-rows: 25%;
+    font-size: 14px;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin: 0 auto;
+}
+
+
+.wrapper .advitem .itemImg {
+    width: 16%;
+    margin-bottom: 25px;
+}
+
+.advantages .wrapper h2 {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+
+.advitem .cardWrap {
+    height: 250px;
+}
+
+.wrapper .advitem .itemBgc {
+    width: 80%;
+}
+
+
+.localization {
+    margin-top: 60px;
+}
+
+.localization h1,
+h2,
+h3 {
+    margin: 2vh 0 2vh 0;
+}
+
+.localization h1 {
+    font-size: 1.8rem;
+}
+
+.localization h2,
+h3 {
+    font-size: 1.2rem;
+}
+
+.localization .map {
+    position: relative;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 100vw;
+    margin: 4vh auto 10vh auto;
+}
+
+.localization .map img {
+    border-radius: 0px;
+}
+
+.socials {
+    bottom: 40px;
+    right: 40px;
+}
+
+.socials:hover .facebookBtn {
+    right: -10px;
+   
+}
+
+.socials:hover .instagramBtn {
+    right: 70px;
+}
+
+.localization .map .point {
+    width: 4%;
+}
+
+
+
+
+/* RESPONSIVE PRICELIST PAGE */
+
+.priceBaner {
+    height: 200px;
+    max-width: 95vw;
+    min-width: 95vw;
+    margin-bottom: 40px;
+    margin-top: 30px;
+}
+
+.priceBaner .btnFirstMonth {
+    bottom: 20px;
+    right: 20px;
+    width: 35%;
+    min-width: 210px;
+    border-radius: 20px;
+    height: 45px;
+    font-size: 12px;
+}
+
+.btnFirstMonth span {
+    line-height: 45px;
+}
+
+
+.priceList {
+    /* border: 0px solid white; */
+    padding: 5px 10px;
+    font-size: 12px;
+    width: 95vw;
+    max-width: 500px;
+    min-width: 300px;
+}
+
+.priceList div {
+    padding: 20px 10px;
+    text-align: center;
+}
+
+
+.descriptionContainer {
+    flex-basis: 100px;
+    width: 95vw;
+    min-width: 95vw;
+    max-width: 95vw;
+}
+
+
+.descriptionContainer .firstDescription {
+    height: 200px;
+    min-height: 100px;
+    flex-basis: 100%;
+}
+
+.descriptionContainer .firstIphoneImg {
+    display: none;
+}
+
+.descriptionContainer .firstDescription p {
+    line-height: 2rem;
+    font-size: 1.3rem;
+}
+
+
+.descriptionContainer h2 {
+    flex-basis: 100%;
+    font-size: 0.9rem;
+    margin: 0 10px;
+}
+
+
+.descriptionContainer .secondIphoneImg {
+    height: 10vh;
+    min-height: 320px;
+    flex-basis: 100%;
+}
+
+.descriptionContainer .secondIphoneImg img {
+    min-height: 600px;
+}
+
+.descriptionContainer .secondDescription {
+    flex-basis: 100%;
+}
+
+
+.descriptionContainer .secondDescription img {
+    width: 90%;
+}
+
+
+}
+
+
+
+
+/* SMALLEST SMARTPHONE > 375px */
+
+
+
+
+@media (max-width: 375px) {
+
+
+    /* MENU RESPONSIVE */
+
+
+    .menuCircle {
+        transform: translate(0, -55%);
+    }
+
+
+  /* RESPONSIVE HOME PAGE */
+
+  .backText {
+    font-size: 510px;
+}
+
+.textWrap1 p {
+    left: -250%;
+    top: -5%;
+    height: 50vh;
+    animation: textMove2 70s infinite alternate linear;
+}
+
+.textWrap2 p {
+    right: -220%;
+    top: 35vh;
+    height: 60vh;
+    animation: textMove1 70s infinite alternate linear;
+}
+
+
+.frontImage {
+    right: -40%;
+    top: 10vh;
+    height: 96vh;
+}
+
+@keyframes textMove1 {
+    0% {
+        transform: translate(0%, 0);
+    }
+
+    100% {
+        transform: translate(-80%, 0);
+    }
+}
+
+@keyframes textMove2 {
+    0% {
+        transform: translate(0%, 0);
+    }
+
+    100% {
+        transform: translate(80%, 0);
+    }
+}
+
+
+
+
+/* RESPONSIVE TRAINERS PAGE */
+
+.trainersCards {
+    gap: 0px; 
+}
+
+.trainerDescription p {
+    width: 92%;
+    margin: 5px auto;
+    font-size: 13px;
+}
+
+.trainerDescription button {
+    bottom: 7%;
+    width: 35%;  
+}
+
+.trainersBaner {
+    margin-top: 50px;
+}
+
+
+
+/* RESPONSIVE ABOUT PAGE */
+
+.slogan {
+    margin-top: 50px;
+}
+
+
+.blacked {
+    height: 100vh; 
+}
+
+.slogan p {
+font-size: 1.1rem;
+}
+
+
+.advantagesTitle {
+font-size: 1.5rem;
+}
+
+
+.advantages .wrapper h2 {
+font-size: 1.1rem;
+}
+
+
+.localization {
+margin-top: 10px;
+}
+
+
+.localization h1 {
+font-size: 1.5rem;
+}
+
+.localization h2,
+h3 {
+font-size: 1.1rem;
+}
+
+
+.socials {
+bottom: 25px;
+right: 25px;
+}
+
+
+
+/* RESPONSIVE PRICELIST PAGE */
+
+.priceBaner {
+
+margin-bottom: 30px;
+margin-top: 50px;
+}
+
+
+.priceList {
+padding: 2px 5px;
+font-size: 10px;
+}
+
+
+.descriptionContainer .firstDescription p {
+line-height: 2rem;
+font-size: 1rem;
+}
+
+
+}
+
+
